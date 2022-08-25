@@ -20,6 +20,8 @@ resource "aws_ebs_volume" "new_ebs_volumes" {
   availability_zone = data.aws_instance.instances[lookup(local.all, local.ebs_volumes[count.index].volume_id)].availability_zone
   snapshot_id = aws_ebs_snapshot.ebs_volumes[local.ebs_volumes[count.index].volume_id].id
   size = local.ebs_volumes[count.index].volume_size
+  #encrypted = true
+  #kms_key_id = "<Insert your KMS key ARN here>"
 
   tags = merge(data.aws_instance.instances[lookup(local.all, local.ebs_volumes[count.index].volume_id)].tags, 
     {
@@ -37,6 +39,8 @@ resource "aws_ebs_volume" "new_root_volumes" {
   availability_zone = data.aws_instance.instances[lookup(local.all, local.root_volumes[count.index].volume_id)].availability_zone
   snapshot_id = aws_ebs_snapshot.root_volumes[local.root_volumes[count.index].volume_id].id
   size = local.root_volumes[count.index].volume_size
+  #encrypted = true
+  #kms_key_id = "<Insert your KMS key ARN here>"
 
   tags = merge(data.aws_instance.instances[lookup(local.all, local.root_volumes[count.index].volume_id)].tags, 
     {
