@@ -87,7 +87,7 @@ cd ..
 cd attach_volumes
 
 touch ebs.auto.tfvars
-echo "ebs_list = [<Paste the output noted on step :five:>]" > ebs.auto.tfvars
+echo "ebs_list = [<Paste the output noted on step 5]" > ebs.auto.tfvars
 ```
 <br>
 
